@@ -17,6 +17,16 @@ test("get the name of the manager", () => {
   );
 });
 
+test("create a generator object", () => {
+  const manager = new Manager("Orlando");
+  expect(manager.idGenerator()).toEqual(expect.any(Object));
+});
+
+test("check if generator object contains a property called 'value'", () => {
+  const manager = new Manager("Orlando");
+  expect(manager.idGenerator().next()).toHaveProperty("value");
+});
+
 test("get the id of the manager", () => {
   const manager = new Manager("orlando");
   manager.id = 0;
