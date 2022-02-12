@@ -16,16 +16,6 @@ test("get the name of the employee", () => {
   );
 });
 
-test("create a generator object", () => {
-  const employee = new Employee("Orlando");
-  expect(employee.idGenerator()).toEqual(expect.any(Object));
-});
-
-test("check if generator object contains a property called 'value'", () => {
-  const employee = new Employee("Orlando");
-  expect(employee.idGenerator().next()).toHaveProperty("value");
-});
-
 test("get the id of the employee", () => {
   const employee = new Employee("Orlando");
 

@@ -17,16 +17,6 @@ describe("test if inherited properties and methods still function as they should
     );
   });
 
-  test("create a generator object", () => {
-    const manager = new Manager("Orlando");
-    expect(manager.idGenerator()).toEqual(expect.any(Object));
-  });
-
-  test("check if generator object contains a property called 'value'", () => {
-    const manager = new Manager("Orlando");
-    expect(manager.idGenerator().next()).toHaveProperty("value");
-  });
-
   test("get the id of the manager", () => {
     const manager = new Manager("Orlando");
 
