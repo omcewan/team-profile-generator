@@ -3,7 +3,6 @@ const Manager = require("../lib/Manager");
 describe("test if inherited properties and methods still function as they should", () => {
   test("check if class is inheriting from parent class Employee", () => {
     const manager = new Manager("Orlando");
-    manager.email = "gmail.com";
 
     expect(manager.name).toBe("Orlando");
     expect(manager.id).toEqual(expect.any(Number));
@@ -30,7 +29,6 @@ describe("test if inherited properties and methods still function as they should
 
   test("get the id of the manager", () => {
     const manager = new Manager("Orlando");
-    manager.id = 0;
 
     expect(manager.getId()).toEqual(
       expect.stringContaining(manager.id.toString())
@@ -39,7 +37,6 @@ describe("test if inherited properties and methods still function as they should
 
   test("get the email of the manager", () => {
     const manager = new Manager("Orlando");
-    manager.email = "gmail.com";
 
     expect(manager.getEmail()).toEqual(
       expect.stringContaining(manager.email.toString())
