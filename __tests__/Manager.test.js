@@ -5,7 +5,7 @@ describe("test if inherited properties and methods still function as they should
     const manager = new Manager("Orlando");
 
     expect(manager.name).toBe("Orlando");
-    expect(manager.id).toEqual(expect.any(Number));
+    expect(manager.id).toEqual(expect.any(String));
     expect(manager.email).toEqual(expect.any(String));
   });
 

@@ -247,7 +247,51 @@ const internQuestions = [
   },
 ];
 
-let myEmployees = [];
+// this is temp data of what to expect after the input from the app
+let myEmployees = [
+  {
+    managerName: "Orlando McEwan",
+    managerId: "omcewan",
+    managerEmail: "omcewan@gmail.com",
+    managerOffice: "1",
+    addEmployee: "Engineer",
+  },
+  {
+    engineerName: "Ameera Valentine",
+    engineerId: "avalentine",
+    engineerEmail: "avalentine@gmail.com",
+    github: "ameera",
+    addEmployee: "Engineer",
+  },
+  {
+    engineerName: "Isreal Wedderburn",
+    engineerId: "iwedderburn",
+    engineerEmail: "israel@gmail.com",
+    github: "israel",
+    addEmployee: "Intern",
+  },
+  {
+    internName: "Moriah Wedderburn",
+    internId: "mwedderburn",
+    internEmail: "moriah@gmail.com",
+    school: "MSU",
+    addEmployee: "Intern",
+  },
+  {
+    engineerName: "Eden Wedderburn",
+    engineerId: "ewedderburn",
+    engineerEmail: "eden@gmail.com",
+    github: "eden",
+    addEmployee: "Intern",
+  },
+  {
+    internName: "Lizzy Mingo",
+    internId: "lmingo",
+    internEmail: "lizzy@gmail.com",
+    school: "NYU",
+    addEmployee: "Finish Building Team",
+  },
+];
 
 const promptEngineer = () => {
   return inquirer.prompt(engineerQuestions).then((engineerData) => {
@@ -282,7 +326,7 @@ const promptIntern = () => {
 const promptManager = () => {
   return inquirer.prompt(managerQuestions).then((managerData) => {
     myEmployees.push(managerData);
-    console.log(managerData);
+    console.log(myEmployees);
     let { addEmployee } = managerData;
     if (addEmployee === "Engineer") {
       return promptEngineer();
@@ -296,4 +340,6 @@ const promptManager = () => {
 
 const initApp = () => promptManager();
 
-initApp();
+// initApp();
+
+module.exports = myEmployees;

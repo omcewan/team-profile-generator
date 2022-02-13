@@ -4,7 +4,7 @@ test("create an Employee class", () => {
   const employee = new Employee("Orlando");
 
   expect(employee.name).toBe("Orlando");
-  expect(employee.id).toEqual(expect.any(Number));
+  expect(employee.id).toEqual(expect.any(String));
   expect(employee.email).toEqual(expect.any(String));
 });
 
