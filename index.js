@@ -296,7 +296,6 @@ let myEmployees = [
 const promptEngineer = () => {
   return inquirer.prompt(engineerQuestions).then((engineerData) => {
     myEmployees.push(engineerData);
-    console.log(myEmployees);
     let { addEmployee } = engineerData;
     if (addEmployee === "Engineer") {
       return promptEngineer();
@@ -311,7 +310,6 @@ const promptEngineer = () => {
 const promptIntern = () => {
   return inquirer.prompt(internQuestions).then((internData) => {
     myEmployees.push(internData);
-    console.log(myEmployees);
     let { addEmployee } = internData;
     if (addEmployee === "Engineer") {
       return promptManager(engineerQuestions);
@@ -326,7 +324,6 @@ const promptIntern = () => {
 const promptManager = () => {
   return inquirer.prompt(managerQuestions).then((managerData) => {
     myEmployees.push(managerData);
-    console.log(myEmployees);
     let { addEmployee } = managerData;
     if (addEmployee === "Engineer") {
       return promptEngineer();

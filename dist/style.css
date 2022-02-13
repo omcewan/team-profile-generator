@@ -7,6 +7,14 @@
 body {
   background-color: seashell;
 }
+
+body section {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  height: 500px;
+}
+
 header {
   display: flex;
   flex-flow: column wrap;
@@ -18,4 +26,18 @@ header {
 
 header h1 {
   color: seashell;
+}
+
+card h5 {
+  text-align: center;
+  color: seashell;
+  background-color: teal;
+}
+
+card p {
+  border: solid;
+  background: white;
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
 }
