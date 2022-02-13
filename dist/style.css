@@ -12,7 +12,6 @@ body section {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
-  height: 500px;
 }
 
 header {
@@ -22,22 +21,34 @@ header {
   justify-content: center;
   height: 100px;
   background-color: teal;
+  margin-bottom: 10px;
 }
 
 header h1 {
   color: seashell;
 }
 
-card h5 {
+card {
+  border-width: 8px;
+  padding: 0;
+  margin: 10px;
+  box-shadow: 4px 4px 10px silver;
+}
+
+card h4 {
   text-align: center;
   color: seashell;
   background-color: teal;
+  margin: 10px;
+  padding: 10px;
 }
 
 card p {
-  border: solid;
+  /* border: solid; */
   background: white;
   text-align: center;
   margin: 10px;
   padding: 10px;
+  border-style: groove;
+  box-sizing: border-box;
 }
