@@ -13,12 +13,12 @@ const generateManager = (employeesArr) => {
         managerOffice
       );
       return `
-      <card class="col-4 align-self-center">
-        <h4 class="emplpoyee-name">${newManager.getName()}<br>${newManager.getRole()}</h4>
+      <card class="col-3 align-self-center">
+        <h5 class="emplpoyee-name">${newManager.getName()}<br>${newManager.getRole()}</h5>
         <p class="employee-id">${newManager.getId()}</p>
         <p class="employee-email">Email: <a href="mailto:${newManager.getEmail()}">
         ${newManager.name}</a></p>
-        <p class="employee-misc">${newManager.officeNumber}</p>
+        <p class="employee-misc">Office Number: ${newManager.officeNumber}</p>
       </card>`;
     })
     .join("");
@@ -37,8 +37,8 @@ const generateEngineers = (employeesArr) => {
         github
       );
       return `
-      <card class="col-4 align-self-center">
-        <h4 class="emplpoyee-name">${newEngineer.getName()}<br>${newEngineer.getRole()}</h4>
+      <card class="col-3 align-self-center">
+        <h5 class="emplpoyee-name">${newEngineer.getName()}<br>${newEngineer.getRole()}</h5>
         <p class="employee-id">${newEngineer.getId()}</p>
         <p class="employee-email">Email: <a href="mailto:${newEngineer.getEmail()}">
         ${newEngineer.name}</a></p>
@@ -57,8 +57,8 @@ const generateInterns = (employeesArr) => {
     .map(({ internName, internEmail, internId, school }) => {
       const newIntern = new Intern(internName, internEmail, internId, school);
       return `
-      <card class="col-4 align-self-center">
-        <h4 class="emplpoyee-name">${newIntern.getName()}<br>${newIntern.getRole()}</h4>
+      <card class="col-3 align-self-center">
+        <h5 class="emplpoyee-name">${newIntern.getName()}<br>${newIntern.getRole()}</h5>
         <p class="employee-id">${newIntern.getId()}</p>
         <p class="employee-email">Email: <a href="mailto:${newIntern.getEmail()}">
         ${newIntern.name}</a></p>

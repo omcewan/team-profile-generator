@@ -6,12 +6,12 @@ const managerQuestions = [
   {
     type: "input",
     name: "managerName",
-    message: "Please enter the name of the Manager.(Required)",
+    message: "Please enter the full name of the Manager.(Required)",
     validate: (managerName) => {
       if (managerName) {
         return true;
       } else {
-        console.log("Please enter the name of the Manager.(Required)");
+        console.log("Please enter the full name of the Manager.(Required)");
         return false;
       }
     },
@@ -20,12 +20,15 @@ const managerQuestions = [
   {
     type: "input",
     name: "managerId",
-    message: "Please enter the id of the Manager.(Required)",
+    message:
+      "Please enter the id of the Manager. Your ID is your first initial and last name.(Required)",
     validate: (managerId) => {
       if (managerId) {
         return true;
       } else {
-        console.log("Please enter the id of the Manager.(Required)");
+        console.log(
+          "Please enter the id of the Manager. Your ID is your first initial and last name.(Required)"
+        );
         return false;
       }
     },
@@ -59,13 +62,6 @@ const managerQuestions = [
     },
   },
 
-  // {
-  //   type: "confirm",
-  //   name: "confirmAddEmployee",
-  //   message: "Would you like to add another employee?",
-  //   default: false,
-  // },
-
   {
     type: "list",
     name: "addEmployee",
@@ -87,12 +83,12 @@ const engineerQuestions = [
   {
     type: "input",
     name: "engineerName",
-    message: "Please enter the name of the Engineer.(Required)",
+    message: "Please enter the full name of the Engineer.(Required)",
     validate: (engineerName) => {
       if (engineerName) {
         return true;
       } else {
-        console.log("Please enter the name of the Engineer.(Required)");
+        console.log("Please enter full the name of the Engineer.(Required)");
         return false;
       }
     },
@@ -101,12 +97,15 @@ const engineerQuestions = [
   {
     type: "input",
     name: "engineerId",
-    message: "Please enter the Id of the Engineer.(Required)",
+    message:
+      "Please enter the Id of the Engineer. Your ID is your first initial and last name.(Required)",
     validate: (engineerId) => {
       if (engineerId) {
         return true;
       } else {
-        console.log("Please enter the Id of the Engineer.(Required)");
+        console.log(
+          "Please enter the Id of the Engineer. Your ID is your first initial and last name.(Required)"
+        );
         return false;
       }
     },
@@ -144,13 +143,6 @@ const engineerQuestions = [
     },
   },
 
-  // {
-  //   type: "confirm",
-  //   name: "confirmAddEmployee",
-  //   message: "Would you like to add another employee?",
-  //   default: false,
-  // },
-
   {
     type: "list",
     name: "addEmployee",
@@ -172,12 +164,12 @@ const internQuestions = [
   {
     type: "input",
     name: "internName",
-    message: "Please enter the name of the Intern.(Required)",
+    message: "Please enter the full name of the Intern.(Required)",
     validate: (internName) => {
       if (internName) {
         return true;
       } else {
-        console.log("Please enter the name of the Intern.(Required)");
+        console.log("Please enter the full name of the Intern.(Required)");
         return false;
       }
     },
@@ -186,12 +178,15 @@ const internQuestions = [
   {
     type: "input",
     name: "internId",
-    message: "Please enter the Id of the Intern.(Required)",
+    message:
+      "Please enter the Id of the Intern. Your ID is your first initial and last name.(Required)",
     validate: (internId) => {
       if (internId) {
         return true;
       } else {
-        console.log("Please enter the Id of the Intern.(Required)");
+        console.log(
+          "Please enter the Id of the Intern. Your ID is your first initial and last name.(Required)"
+        );
         return false;
       }
     },
@@ -224,13 +219,6 @@ const internQuestions = [
       }
     },
   },
-
-  // {
-  //   type: "confirm",
-  //   name: "confirmAddEmployee",
-  //   message: "Would you like to add another employee?",
-  //   default: false,
-  // },
 
   {
     type: "list",
@@ -271,9 +259,9 @@ const promptIntern = () => {
     myEmployees.push(internData);
     let { addEmployee } = internData;
     if (addEmployee === "Engineer") {
-      return promptManager(engineerQuestions);
-    } else if (addEmployee === "Intern") {
       return promptEngineer();
+    } else if (addEmployee === "Intern") {
+      return promptIntern();
     } else if (addEmployee === "Finish Builiding Team") {
       return myEmployees;
     }
@@ -283,12 +271,11 @@ const promptIntern = () => {
 const promptManager = () => {
   return inquirer.prompt(managerQuestions).then((managerData) => {
     myEmployees.push(managerData);
-    console.log(myEmployees);
     let { addEmployee } = managerData;
     if (addEmployee === "Engineer") {
       return promptEngineer();
     } else if (addEmployee === "Intern") {
-      return promptEngineer();
+      return promptIntern();
     } else if (addEmployee === "Finish Builiding Team") {
       return myEmployees;
     }
