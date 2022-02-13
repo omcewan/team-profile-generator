@@ -17,7 +17,7 @@ const managerQuestions = [
 
   {
     type: "input",
-    name: "ManagerId",
+    name: "managerId",
     message: "Please enter the id of the Manager.(Required)",
     validate: (managerId) => {
       if (managerId) {
@@ -55,6 +55,13 @@ const managerQuestions = [
         return false;
       }
     },
+  },
+
+  {
+    type: "confirm",
+    name: "confirmAddEmployee",
+    message: "Would you like to add another employee?",
+    default: false,
   },
 
   {
@@ -136,6 +143,13 @@ const engineerQuestions = [
   },
 
   {
+    type: "confirm",
+    name: "confirmAddEmployee",
+    message: "Would you like to add another employee?",
+    default: false,
+  },
+
+  {
     type: "list",
     name: "addEmployee",
     message:
@@ -210,6 +224,13 @@ const internQuestions = [
   },
 
   {
+    type: "confirm",
+    name: "confirmAddEmployee",
+    message: "Would you like to add another employee?",
+    default: false,
+  },
+
+  {
     type: "list",
     name: "addEmployee",
     message:
@@ -226,15 +247,58 @@ const internQuestions = [
   },
 ];
 
-const init = () => inquirer.prompt(managerQuestions);
+const promptEngineer = () => {
+  return inquirer.prompt(engineerQuestions).then((engineerData) => {
+    console.log(engineerData);
+    let { addEmployee } = engineerData;
+    if (engineerData.confirmAddEmployee) {
+      if (addEmployee === "Engineer") {
+        return promptEngineer();
+      } else if (addEmployee === "Intern") {
+        return promptIntern();
+      } else if (addEmployee === "Finish Builiding Team") {
+        return console.log("Your team is completed");
+      }
+    } else {
+      return engineerData;
+    }
+  });
+};
 
-init().then((managerData) => {
-  let { addEmployee } = managerData;
-  if (addEmployee === "Engineer") {
-    inquirer.prompt(engineerQuestions);
-  } else if (addEmployee === "Intern") {
-    inquirer.prompt(internQuestions);
-  } else if (addEmployee === "Finish Building Team") {
-    console.log("Your team is complete!");
-  }
-});
+const promptIntern = () => {
+  return inquirer.prompt(internQuestions).then((internData) => {
+    console.log(internData);
+    let { addEmployee } = internData;
+    if (internData.confirmAddEmployee) {
+      if (addEmployee === "Engineer") {
+        return promptManager(engineerQuestions);
+      } else if (addEmployee === "Intern") {
+        return promptEngineer();
+      } else if (addEmployee === "Finish Builiding Team") {
+        return console.log("Your team is completed");
+      }
+    } else {
+      return internData;
+    }
+  });
+};
+
+const promptManager = () => {
+  return inquirer.prompt(managerQuestions).then((managerData) => {
+    console.log(managerData);
+    let { addEmployee } = managerData;
+    if (managerData.confirmAddEmployee) {
+      if (addEmployee === "Engineer") {
+        return promptEngineer();
+      } else if (addEmployee === "Intern") {
+        return promptEngineer();
+      } else if (addEmployee === "Finish Builiding Team") {
+        return console.log("Your team is completed");
+      }
+    } else {
+      return managerData;
+    }
+  });
+};
+
+promptManager();
