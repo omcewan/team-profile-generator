@@ -38,7 +38,7 @@ describe("check fucntionalitiy of Manager class specific properties and funciton
   test("returns 'Manager' ", () => {
     const manager = new Manager("Orlando");
 
-    expect(manager.getRole()).toBe("Manager");
+    expect(manager.getRole()).toEqual(expect.stringContaining(manager.role.toString()));
   });
 
   test("returns managers's office number", () => {

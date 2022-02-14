@@ -43,7 +43,7 @@ describe("check fucntionalitiy of Engineer class specific properties and funcito
   test("returns 'Engineer' ", () => {
     const engineer = new Engineer("Orlando");
 
-    expect(engineer.getRole()).toBe("Engineer");
+    expect(engineer.getRole()).toEqual(expect.stringContaining(engineer.role.toString()));
   });
 
   test("get the engineer's github link", () => {

@@ -44,7 +44,7 @@ describe("check fucntionalitiy of Intern class specific properties and funcitons
   test("returns 'Intern' ", () => {
     const intern = new Intern("Orlando");
 
-    expect(intern.getRole()).toBe("Intern");
+    expect(intern.getRole()).toEqual(expect.stringContaining(intern.role.toString()));
   });
 
   test("returns the Intern's School", () => {

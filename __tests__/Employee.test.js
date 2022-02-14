@@ -35,5 +35,5 @@ test("get the email of the employee", () => {
 test("returns 'Employee' ", () => {
   const employee = new Employee("Orlando");
 
-  expect(employee.getRole()).toBe("Employee");
+  expect(employee.getRole()).toEqual(expect.stringContaining(employee.role.toString()));
 });
